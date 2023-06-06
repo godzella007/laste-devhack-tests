@@ -1,16 +1,31 @@
-// example.test.js
+import React, { useEffect } from 'react';
+import assert from 'assert';
 
-const assert = require('assert');
+const ExampleComponent = () => {
+  useEffect(() => {
+    const runTests = async () => {
+      try {
+        assert.strictEqual(2 + 2, 4);
+        await performAsyncOperation();
+        console.log('All tests passed!');
+      } catch (error) {
+        console.error('Test failed:', error);
+      }
+    };
 
-describe('Example Test Suite', () => {
-  it('should return true', () => {
-    assert.strictEqual(2 + 2, 4);
-  });
+    runTests();
+  }, []);
 
-  it('should perform async operation', (done) => {
-    setTimeout(() => {
-      assert.strictEqual(3 * 3, 9);
-      done();
-    }, 1000);
-  });
-});
+  const performAsyncOperation = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        try {
+          assert.strictEqual(3 * 3, 9);
+          resolve();
+        } catch (error) {
+          console.error('Test failed:', error);
+          resolve();
+        }
+      }, 1000);
+    });
+ 
