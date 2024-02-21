@@ -18,7 +18,8 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: REACT_APP_BACKEND_URL
-          value: http://20.219.178.245:5000
+          value: http://todo-backend-service:5000
+
 ---
 
 apiVersion: apps/v1    
