@@ -48,7 +48,6 @@ spec:
               key: connectionString
         imagePullPolicy: Always
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -59,7 +58,6 @@ spec:
   selector:
     app: frontend-app
   type: LoadBalancer
-  loadBalancerIP: 20.207.87.14
   ports:
   - name: http
     protocol: TCP
@@ -67,7 +65,6 @@ spec:
     targetPort: 8081
     nodePort: 30010
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -78,7 +75,6 @@ spec:
   selector:
     app: backend-app
   type: LoadBalancer 
-  loadBalancerIP: 20.219.178.245
   ports:
   - name: http
     protocol: TCP
